@@ -6,6 +6,7 @@ var sass = require('gulp-ruby-sass');
 // Compile SASS
 gulp.task('sass', function() {
     return sass('src/scss/*.scss', { style: 'compressed' })
+        .pipe(concat('app.css'))
         .pipe(gulp.dest('css'))
 });
 
