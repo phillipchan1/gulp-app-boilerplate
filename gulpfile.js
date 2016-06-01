@@ -12,11 +12,7 @@ gulp.task('sass', function() {
 
 gulp.task('scripts', function() {
     return gulp.src([
-            'src/js/config.js',
-            'src/js/data.js',
-            'src/js/features.js',
-            'src/js/ui.js',
-            'src/js/app.js'
+            'src/js/*'
         ])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('js'));
