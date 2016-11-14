@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^3.8.1",
     "gulp-minify": "0.0.14",
     "gulp-sass": "^2.3.2",
     "run-sequence": "^1.2.2"

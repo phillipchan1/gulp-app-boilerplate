@@ -1,6 +1,7 @@
 // Include gulp & gulp plugins
 var concat = require('gulp-concat');
 var gulp = require('gulp');
+var livereload = require('gulp-livereload');
 var minify = require('gulp-minify');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
@@ -11,7 +12,7 @@ gulp.task('sass', function() {
 	.pipe(sass().on('error', sass.logError))
 	.pipe(concat('app.css'))
 	.pipe(gulp.dest('css'))
-	});
+});
 
 // Concat JS Files
 gulp.task('scripts', function() {
@@ -30,16 +31,23 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest('js'));
 });
 
+gulp.task('refresh', function() {
+	return gulp.src('index.html')
+	.pipe(livereload({start: true}))
+});
+
 // Watch for changes
 gulp.task('watch', function() {
 	// Watch .js files
-	gulp.watch('src/js/*.js', ['scripts']);
+	gulp.watch('src/js/*.js', ['scripts', 'refresh']);
 	// Watch .scss files
-	gulp.watch('src/scss/*.scss', ['sass']);
+	gulp.watch('src/scss/*.scss', ['sass', 'refresh']);
+	// Watch HTML files
+	gulp.watch('**/*.html', ['refresh']);
 });
 
 
 // Default Task
 gulp.task('default', function() {
-	runSequence('scripts', 'sass', 'watch');
+	runSequence('scripts', 'sass', 'watch', 'refresh');
 });
