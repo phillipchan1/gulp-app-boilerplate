@@ -21,7 +21,8 @@ gulp
 # Under the Hood
 This has two front-end processes that are useful for app development:
 
-- concatenating and minifying scss
-- concatenating and minifying js
+- Concatenates and minifies scss
+- Concatenates and minifies js
+- Automatically reloads page (if [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) is installed)
 
 Distribution files will be loaded in the `css` and `js` respectively.
