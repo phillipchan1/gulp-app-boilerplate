@@ -7,6 +7,7 @@
     "gulp": "^3.9.1"
   },
   "devDependencies": {
+    "concurrently": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^3.8.1",
@@ -15,6 +16,7 @@
     "run-sequence": "^1.2.2"
   },
   "scripts": {
+    "start": "concurrently gulp \"open index.html\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
